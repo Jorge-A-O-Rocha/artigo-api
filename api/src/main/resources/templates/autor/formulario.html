@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{template.html}">
+
+<head>
+	<title>Cadastro Autor</title>
+</head>
+
+<body>
+	<div layout:fragment="conteudo">
+		<div class="box">
+			<h1>Cadastro Autor</h1>
+			<form method="post" action="/autor">
+				<input type="hidden" name="_method" value="put" th:if="${autor!= null}">
+				<input type="hidden" name="id" th:value="${autor?.id}">
+
+				<div>
+					<label for="nome"> Nome: </label>
+					<input type="text" id="nome" name="nome" th:value="${autor?.nome}">
+				</div>
+
+				<div>
+					<label for="email"> Email: </label>
+					<input type="text" id="email" name="email" th:value="${autor?.email}">
+				</div>
+
+				<div>
+					<label for="instituicao"> Instituicão: </label>
+					<input type="text" id="instituicao" name="instituicao" th:value="${autor?.instituicao}">
+				</div>
+				
+				<div>
+					<label for="fone"> Fone: </label>
+					<input type="text" id="fone" name="fone" th:value="${autor?.fone}">
+				</div>
+
+				<div>
+					<label for="ativo"> Ativo: </label>
+					<select id="ativo" name="ativo">
+						<option value="true" th:selected="${autor?.ativo} == true">Sim</option>
+						<option value="false" th:selected="${autor?.ativo} == false">Não</option>
+					</select>
+				</div>
+
+				<input type="submit" value="Cadastrar">
+			</form>
+		</div>
+</body>
+
+</html>
